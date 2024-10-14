@@ -1,7 +1,7 @@
 # image will be published to ghcr.io/<user>/<name>
 name: heartsbane
 # description will be included in the image's metadata
-description: This is my personal OS image.
+description: a simple silverblue image for Asus Strix Scar 15 2021
 
 # the base image to build on top of (FROM) and the version tag to use
 base-image: ghcr.io/ublue-os/silverblue-main
@@ -17,10 +17,25 @@ modules:
 
   - type: rpm-ostree
     repos:
-      # - https://copr.fedorainfracloud.org/coprs/atim/starship/repo/fedora-%OS_VERSION%/atim-starship-fedora-%OS_VERSION%.repo
+      - https://copr.fedorainfracloud.org/coprs/atim/starship/repo/fedora-%OS_VERSION%/atim-starship-fedora-%OS_VERSION%.repo
+      - https://copr.fedorainfracloud.org/coprs/robot/veracrypt/repo/fedora-%OS_VERSION%/robot-veracrypt-fedora-%OS_VERSION%.repo
     install:
-      # - micro
-      # - starship
+      - starship
+      - code
+      - veracrypt
+      - gnome-shell-extension-system-monitor
+      - gnome-shell-extension-appindicator
+      - gnome-shell-extension-blur-my-shell
+      - ulauncher
+      # Terminal tools
+      - zoxide
+      - stow
+      - git
+      - zsh
+      - fastfetch
+      # Entertainment tools
+      - vlc
+      - smplayer
     remove:
       # example: removing firefox (in favor of the flatpak)
       # "firefox" is the main package, "firefox-langpacks" is a dependency
