@@ -19,7 +19,6 @@ modules:
     base: asus
     install:
       # - nvidia
-      - openrgb
       - v4l2loopback
       - winesync
       - ryzen-smu
