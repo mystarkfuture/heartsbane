@@ -62,6 +62,13 @@ modules:
       - wl-clipboard
       - wireguard-tools
       - veracrypt
+      - lm_sensors
+      - openssh-askpass
+      - udica
+      - krb5-workstation
+      - libxcrypt-compat
+      - bcache-tools
+      - bootc
       # Development
       - code
       - make
