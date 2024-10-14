@@ -135,7 +135,7 @@ modules:
         - JetBrainsMono
         - NerdFontsSymbolsOnly
         - OpenDyslexic
-        - SauceCodePro
+        # - SauceCodePro
       google-fonts:
         - Roboto
         - Open Sans
