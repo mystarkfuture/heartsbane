@@ -23,7 +23,6 @@ modules:
       - ryzen-smu
       - xpadneo
       - xone
-      - zenergy
 
   - type: gnome-extensions
     install:
