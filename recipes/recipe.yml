@@ -19,7 +19,6 @@ modules:
     base: asus
     install:
       # - nvidia
-      - v4l2loopback
       - ryzen-smu
       - xpadneo
       - xone
