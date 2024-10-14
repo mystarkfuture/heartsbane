@@ -15,6 +15,24 @@ modules:
       - source: system
         destination: / # copies files/system/* (* means everything inside it) into your image's root folder /
 
+  - type: akmods
+    base: asus
+    install:
+      # - nvidia
+      - openrgb
+      - v4l2loopback
+      - winesync
+      - ryzen-smu
+      - xpadneo
+      - xone
+      - zenergy
+
+  - type: gnome-extensions
+    install:
+      - 7065  # Tiling Shell
+    # uninstall:
+    #   - GSConnect
+
   - type: rpm-ostree
     repos:
       - https://copr.fedorainfracloud.org/coprs/atim/starship/repo/fedora-%OS_VERSION%/atim-starship-fedora-%OS_VERSION%.repo
@@ -58,6 +76,16 @@ modules:
       - libxcrypt-compat
       - distrobox
 
+  - type: bling
+    install:
+      - ublue-update # https://github.com/ublue-os/ublue-update
+      - dconf-update-service # a service unit that updates the dconf db on boot
+      - gnome-vrr # enables gnome-vrr for your image
+
+  - type: brew
+    nofile-limits: true # increase nofile limits
+    brew-analytics: false # disable telemetry
+
   - type: default-flatpaks
     notify: true # Send notification after install/uninstall is finished (true/false)
     system:
@@ -66,7 +94,7 @@ modules:
       repo-name: flathub
       repo-title: "Flathub (system-wide)" # Optional; this sets the remote's user-facing name in graphical frontends like GNOME Software
       install:
-        - one.ablaze.floorp//lightning # This is an example of flatpak which has multiple branches in selection (flatpak//branch).
+        # - one.ablaze.floorp//lightning # This is an example of flatpak which has multiple branches in selection (flatpak//branch).
         - md.obsidian.Obsidian
         - io.gitlab.librewolf-community
         - com.mattjakeman.ExtensionManager
@@ -103,6 +131,28 @@ modules:
       # - "ln -sf /usr/bin/ld.bfd /etc/alternatives/ld && ln -sf /etc/alternatives/ld /usr/bin/ld" # example: ld alternatives symlink workaround
     scripts:
       - optimizations.sh
+
+  - type: fonts
+    fonts:
+      nerd-fonts:
+        - 0xProto
+        - Agave
+        - FiraMono
+        - Iosevka
+        - IosevkaTerm
+        - JetBrainsMono
+        - NerdFontsSymbolsOnly
+        - OpenDyslexic
+        - SauceCodePro
+      google-fonts:
+        - Roboto
+        - Open Sans
+        - Lato
+
+  - type: chezmoi
+    repository: "https://github.com/muralidharanram/dotfiles"
+    all-users: true # make users have to enable chezmoi manually
+    file-conflict-policy: replace # override changed files with those from the repo
 
   - type: systemd
     # this example disables automatic flatpak updates and enables a custom service unit for all users
