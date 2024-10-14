@@ -20,7 +20,6 @@ modules:
     install:
       # - nvidia
       - v4l2loopback
-      - winesync
       - ryzen-smu
       - xpadneo
       - xone
