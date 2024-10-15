@@ -4,7 +4,7 @@ name: heartsbane
 description: a simple silverblue image for Asus Strix Scar 15 2021
 
 # the base image to build on top of (FROM) and the version tag to use
-base-image: ghcr.io/ublue-os/silverblue-main
+base-image: ghcr.io/ublue-os/silverblue-asus-nvidia
 image-version: latest # latest is also supported if you want new updates ASAP
 
 # module configuration, executed in order
@@ -93,7 +93,6 @@ modules:
       repo-name: flathub
       repo-title: "Flathub (system-wide)" # Optional; this sets the remote's user-facing name in graphical frontends like GNOME Software
       install:
-        # - one.ablaze.floorp//lightning # This is an example of flatpak which has multiple branches in selection (flatpak//branch).
         - md.obsidian.Obsidian
         - io.gitlab.librewolf-community
         - com.mattjakeman.ExtensionManager
