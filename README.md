@@ -41,3 +41,15 @@ These images are signed with [Sigstore](https://www.sigstore.dev/)'s [cosign](ht
 ```bash
 cosign verify --key cosign.pub ghcr.io/mystarkfuture/heartsbane
 ```
+
+## ISO Generation
+
+```bash
+mkdir ./iso-output
+sudo podman run --rm --privileged --volume ./iso-output:/build-container-installer/build --security-opt label=disable --pull=newer \
+ghcr.io/jasonn3/build-container-installer:latest \
+IMAGE_REPO=ghcr.io/mystarkfuture \
+IMAGE_NAME=heartsbane \
+IMAGE_TAG=latest \
+VARIANT=Silverblue
+```
